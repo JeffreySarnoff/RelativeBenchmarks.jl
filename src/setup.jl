@@ -1,8 +1,21 @@
 
+ BenchmarkDefaults =
+     BenchmarkTools.Parameters(
+       seconds = 4.0,
+       samples = 7_500,
+       evals = 1,
+       overhead = BenchmarkTools.estimate_overhead(),
+       gctrial = true,
+       gcsample = false,
+       time_tolerance = 1.25e-11,
+       memory_tolerance = 1/4096, # was 1/1024,
+     );
+
 BenchmarkTools.DEFAULT_PARAMETERS.overhead = BenchmarkTools.estimate_overhead()
 BenchmarkTools.DEFAULT_PARAMETERS.evals = 1
-BenchmarkTools.DEFAULT_PARAMETERS.samples = 7000
-BenchmarkTools.DEFAULT_PARAMETERS.time_tolerance = 0.75e-8
+BenchmarkTools.DEFAULT_PARAMETERS.samples = 7_500
+BenchmarkTools.DEFAULT_PARAMETERS.time_tolerance = 1.35e-11
+BenchmarkTools.DEFAULT_PARAMETERS.memory_tolerance = 1/4096
 
 # introduce `@refd` benchmarking assist (`@refd @btime ..`)
 
